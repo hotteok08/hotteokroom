@@ -35,8 +35,8 @@ export default function ToolsSection() {
             style={{ background: "rgba(16, 185, 129, 0.1)", border: "1px solid rgba(16, 185, 129, 0.3)", color: "#10b981" }}>
             ⚡ Core Tools
           </div>
-          <h2 className="text-4xl font-bold text-white mb-4">Built-in 도구들</h2>
-          <p className="text-sm max-w-xl mx-auto" style={{ color: "#64748b" }}>
+          <h2 className="text-4xl font-bold mb-4" style={{ color: "var(--text)" }}>Built-in 도구들</h2>
+          <p className="text-sm max-w-xl mx-auto" style={{ color: "var(--text-muted)" }}>
             Claude Code가 코드베이스와 상호작용하는 모든 기본 도구. 클릭하면 실제 사용 예제를 볼 수 있습니다.
           </p>
         </div>
@@ -47,9 +47,9 @@ export default function ToolsSection() {
             onClick={() => setActiveCategory(null)}
             className="px-4 py-1.5 rounded-full text-xs transition-all"
             style={{
-              background: activeCategory === null ? "rgba(124, 58, 237, 0.3)" : "rgba(255,255,255,0.05)",
-              border: `1px solid ${activeCategory === null ? "rgba(124, 58, 237, 0.6)" : "rgba(255,255,255,0.1)"}`,
-              color: activeCategory === null ? "#a78bfa" : "#64748b",
+              background: activeCategory === null ? "rgba(124, 58, 237, 0.3)" : "var(--bg-card)",
+              border: `1px solid ${activeCategory === null ? "rgba(124, 58, 237, 0.6)" : "var(--border)"}`,
+              color: activeCategory === null ? "#a78bfa" : "var(--text-muted)",
             }}
           >
             전체
@@ -60,9 +60,9 @@ export default function ToolsSection() {
               onClick={() => setActiveCategory(cat === activeCategory ? null : cat)}
               className="px-4 py-1.5 rounded-full text-xs transition-all"
               style={{
-                background: activeCategory === cat ? `${CATEGORY_COLORS[cat]}22` : "rgba(255,255,255,0.05)",
-                border: `1px solid ${activeCategory === cat ? CATEGORY_COLORS[cat] : "rgba(255,255,255,0.1)"}`,
-                color: activeCategory === cat ? CATEGORY_COLORS[cat] : "#64748b",
+                background: activeCategory === cat ? `${CATEGORY_COLORS[cat]}22` : "var(--bg-card)",
+                border: `1px solid ${activeCategory === cat ? CATEGORY_COLORS[cat] : "var(--border)"}`,
+                color: activeCategory === cat ? CATEGORY_COLORS[cat] : "var(--text-muted)",
               }}
             >
               {CATEGORY_LABELS[cat]}
@@ -91,8 +91,8 @@ export default function ToolsSection() {
                     {tool.name[0]}
                   </div>
                   <div>
-                    <div className="text-sm font-semibold text-white">{tool.name}</div>
-                    <div className="text-xs mt-0.5" style={{ color: "#475569" }}>
+                    <div className="text-sm font-semibold" style={{ color: "var(--text)" }}>{tool.name}</div>
+                    <div className="text-xs mt-0.5" style={{ color: "var(--text-muted)" }}>
                       {CATEGORY_LABELS[tool.category]}
                     </div>
                   </div>
@@ -117,7 +117,7 @@ export default function ToolsSection() {
                     {selected.name[0]}
                   </div>
                   <div>
-                    <div className="text-white font-semibold">{selected.name}</div>
+                    <div className="font-semibold" style={{ color: "var(--text)" }}>{selected.name}</div>
                     <div className="text-xs mt-0.5" style={{ color: CATEGORY_COLORS[selected.category] }}>
                       {CATEGORY_LABELS[selected.category]}
                     </div>
@@ -131,12 +131,12 @@ export default function ToolsSection() {
 
               {/* Description */}
               <div className="px-6 py-4" style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
-                <p className="text-sm" style={{ color: "#94a3b8", lineHeight: 1.7 }}>{selected.description}</p>
+                <p className="text-sm" style={{ color: "var(--text-dim)", lineHeight: 1.7 }}>{selected.description}</p>
               </div>
 
               {/* Code Example */}
               <div className="p-6">
-                <div className="text-xs mb-3" style={{ color: "#475569" }}>// 사용 예제</div>
+                <div className="text-xs mb-3" style={{ color: "var(--text-muted)" }}>// 사용 예제</div>
                 <pre className="text-sm leading-relaxed overflow-auto"
                   style={{ color: "#e2e8f0", fontFamily: "'Fira Code', monospace" }}>
                   {selected.example.split("\n").map((line, i) => {

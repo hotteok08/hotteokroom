@@ -11,6 +11,7 @@ import TerminalSection from "@/components/TerminalSection";
 import Footer from "@/components/Footer";
 import AgentBot from "@/components/AgentBot";
 import ModeAwareContent from "@/components/ModeAwareContent";
+import SectionsWrapper from "@/components/SectionsWrapper";
 
 export default function Home() {
   return (
@@ -18,14 +19,16 @@ export default function Home() {
       <Nav />
       <Hero />
       <ModeAwareContent />
-      <ToolsSection />
-      <AgentsSection />
-      <FileExplorerSection />
-      <MCPSection />
-      <GitSection />
-      <SkillsSection />
-      <PlanModeSection />
-      <TerminalSection />
+      <SectionsWrapper>
+        <ToolsSection />
+        <AgentsSection />
+        <FileExplorerSection />
+        <MCPSection />
+        <GitSection />
+        <SkillsSection />
+        <PlanModeSection />
+        <TerminalSection />
+      </SectionsWrapper>
       <Footer />
       <AgentBot />
     </main>

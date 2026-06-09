@@ -66,8 +66,8 @@ export default function SkillsSection() {
             style={{ background: "rgba(236, 72, 153, 0.1)", border: "1px solid rgba(236, 72, 153, 0.3)", color: "#ec4899" }}>
             / Skills
           </div>
-          <h2 className="text-4xl font-bold text-white mb-4">슬래시 커맨드 (Skills)</h2>
-          <p className="text-sm max-w-xl mx-auto" style={{ color: "#64748b" }}>
+          <h2 className="text-4xl font-bold mb-4" style={{ color: "var(--text)" }}>슬래시 커맨드 (Skills)</h2>
+          <p className="text-sm max-w-xl mx-auto" style={{ color: "var(--text-muted)" }}>
             특수화된 워크플로우를 <code style={{ color: "#ec4899" }}>/</code>로 시작하는 커맨드로 실행.
             클릭해서 각 스킬의 사용법을 확인하세요.
           </p>
@@ -90,7 +90,7 @@ export default function SkillsSection() {
                 <div className="text-sm font-mono font-semibold mb-2" style={{ color: skill.color }}>
                   {skill.name}
                 </div>
-                <div className="text-xs leading-relaxed" style={{ color: "#64748b" }}>{skill.desc}</div>
+                <div className="text-xs leading-relaxed" style={{ color: "var(--text-muted)" }}>{skill.desc}</div>
               </button>
             ))}
           </div>
@@ -99,14 +99,14 @@ export default function SkillsSection() {
           <div className="space-y-4">
             <div className="p-5 rounded-xl"
               style={{ background: "#0d0d1a", border: `1px solid ${selected.color}30` }}>
-              <div className="text-xs mb-2" style={{ color: "#475569" }}>// 실행 방법</div>
+              <div className="text-xs mb-2" style={{ color: "var(--text-muted)" }}>// 실행 방법</div>
               <div className="font-mono text-sm" style={{ color: selected.color }}>{detail.usage}</div>
             </div>
 
             <div className="p-5 rounded-xl"
-              style={{ background: "#0d0d1a", border: "1px solid rgba(255,255,255,0.07)" }}>
-              <div className="text-xs mb-2" style={{ color: "#475569" }}>// 출력</div>
-              <div className="text-sm leading-relaxed" style={{ color: "#94a3b8" }}>{detail.output}</div>
+              style={{ background: "#0d0d1a", border: "1px solid var(--border)" }}>
+              <div className="text-xs mb-2" style={{ color: "var(--text-muted)" }}>// 출력</div>
+              <div className="text-sm leading-relaxed" style={{ color: "var(--text-dim)" }}>{detail.output}</div>
             </div>
 
             <div className="p-4 rounded-xl"

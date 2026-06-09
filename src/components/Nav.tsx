@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useApp } from "@/context/AppContext";
 import { useT } from "@/i18n";
 import RobotLogo from "./RobotLogo";
@@ -26,12 +26,23 @@ export default function Nav() {
   const t = useT();
   const [scrolled, setScrolled] = useState(false);
   const [modeOpen, setModeOpen] = useState(false);
+  const modeRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (modeRef.current && !modeRef.current.contains(e.target as Node)) {
+        setModeOpen(false);
+      }
+    };
+    if (modeOpen) document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, [modeOpen]);
 
   const isLight = theme === "light";
   const currentMode = MODES.find((m) => m.value === mode)!;
@@ -74,7 +85,7 @@ export default function Nav() {
         {/* Controls */}
         <div className="flex items-center gap-2 shrink-0">
           {/* Mode selector */}
-          <div className="relative">
+          <div className="relative" ref={modeRef}>
             <button
               onClick={() => setModeOpen(!modeOpen)}
               className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs transition-all"

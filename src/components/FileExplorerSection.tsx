@@ -145,8 +145,8 @@ export default function FileExplorerSection() {
             style={{ background: "rgba(6, 182, 212, 0.1)", border: "1px solid rgba(6, 182, 212, 0.3)", color: "#06b6d4" }}>
             ⌕ File Explorer
           </div>
-          <h2 className="text-4xl font-bold text-white mb-4">파일 탐색 & 검색</h2>
-          <p className="text-sm max-w-xl mx-auto" style={{ color: "#64748b" }}>
+          <h2 className="text-4xl font-bold mb-4" style={{ color: "var(--text)" }}>파일 탐색 & 검색</h2>
+          <p className="text-sm max-w-xl mx-auto" style={{ color: "var(--text-muted)" }}>
             Glob으로 파일 트리 탐색, Grep으로 코드 심볼 검색. 아래는 이 사이트의 실제 구조입니다.
           </p>
         </div>
@@ -154,11 +154,11 @@ export default function FileExplorerSection() {
         <div className="grid lg:grid-cols-2 gap-8">
           {/* File Tree */}
           <div className="rounded-xl overflow-hidden"
-            style={{ background: "#0d0d1a", border: "1px solid rgba(255,255,255,0.08)" }}>
+            style={{ background: "#0d0d1a", border: "1px solid var(--border)" }}>
             <div className="px-4 py-3 flex items-center justify-between"
-              style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
-              <span className="text-xs text-white font-semibold">파일 트리 (Glob: src/**/*)</span>
-              <span className="text-xs" style={{ color: "#475569" }}>hotteokroom/</span>
+              style={{ borderBottom: "1px solid var(--border)" }}>
+              <span className="text-xs font-semibold" style={{ color: "var(--text)" }}>파일 트리 (Glob: src/**/*)</span>
+              <span className="text-xs" style={{ color: "var(--text-muted)" }}>hotteokroom/</span>
             </div>
             <div className="p-2 overflow-auto max-h-96">
               {FILE_TREE.map((node) => (
@@ -177,8 +177,8 @@ export default function FileExplorerSection() {
               </div>
               <div className="p-4">
                 <div className="flex items-center gap-2 px-3 py-2 rounded-lg mb-4"
-                  style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.1)" }}>
-                  <span className="text-xs" style={{ color: "#475569" }}>pattern:</span>
+                  style={{ background: "var(--bg-card)", border: "1px solid var(--border)" }}>
+                  <span className="text-xs" style={{ color: "var(--text-muted)" }}>pattern:</span>
                   <input
                     type="text"
                     value={grepQuery}
@@ -193,12 +193,12 @@ export default function FileExplorerSection() {
                     .filter((r) => r.match.includes(grepQuery) || grepQuery === "")
                     .map((result, i) => (
                       <div key={i} className="p-3 rounded-lg"
-                        style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)" }}>
+                        style={{ background: "var(--bg-card)", border: "1px solid var(--border)" }}>
                         <div className="flex items-center gap-2 mb-1">
                           <span className="text-xs" style={{ color: "#06b6d4" }}>{result.file}</span>
-                          <span className="text-xs" style={{ color: "#475569" }}>:{result.line}</span>
+                          <span className="text-xs" style={{ color: "var(--text-muted)" }}>:{result.line}</span>
                         </div>
-                        <div className="text-xs font-mono" style={{ color: "#94a3b8" }}>
+                        <div className="text-xs font-mono" style={{ color: "var(--text-dim)" }}>
                           {result.match.split(grepQuery).map((part, j, arr) => (
                             <span key={j}>
                               {part}
@@ -222,9 +222,9 @@ export default function FileExplorerSection() {
                 { tool: "Grep", desc: "ripgrep 기반 검색", color: "#06b6d4" },
               ].map((item) => (
                 <div key={item.tool} className="p-4 rounded-xl"
-                  style={{ background: "rgba(255,255,255,0.02)", border: `1px solid ${item.color}25` }}>
+                  style={{ background: "var(--bg-card)", border: `1px solid ${item.color}25` }}>
                   <div className="text-sm font-semibold mb-1" style={{ color: item.color }}>{item.tool}</div>
-                  <div className="text-xs" style={{ color: "#64748b" }}>{item.desc}</div>
+                  <div className="text-xs" style={{ color: "var(--text-muted)" }}>{item.desc}</div>
                 </div>
               ))}
             </div>

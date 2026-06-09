@@ -125,8 +125,8 @@ export default function TerminalSection() {
             style={{ background: "rgba(239, 68, 68, 0.1)", border: "1px solid rgba(239, 68, 68, 0.3)", color: "#ef4444" }}>
             ▸ Terminal / Bash
           </div>
-          <h2 className="text-4xl font-bold text-white mb-4">인터랙티브 터미널</h2>
-          <p className="text-sm max-w-xl mx-auto" style={{ color: "#64748b" }}>
+          <h2 className="text-4xl font-bold mb-4" style={{ color: "var(--text)" }}>인터랙티브 터미널</h2>
+          <p className="text-sm max-w-xl mx-auto" style={{ color: "var(--text-muted)" }}>
             Bash 도구로 실행되는 실제 쉘 환경. 아래 터미널에서 직접 커맨드를 입력해보세요.
           </p>
         </div>
@@ -135,18 +135,18 @@ export default function TerminalSection() {
           style={{ background: "#0a0a12", border: "1px solid rgba(124, 58, 237, 0.3)", boxShadow: "0 0 40px rgba(124, 58, 237, 0.15)" }}>
           {/* Title bar */}
           <div className="px-4 py-3 flex items-center gap-3"
-            style={{ borderBottom: "1px solid rgba(255,255,255,0.06)", background: "#0d0d1a" }}>
+            style={{ borderBottom: "1px solid var(--border)", background: "#0d0d1a" }}>
             <div className="flex gap-1.5">
               <div className="w-3 h-3 rounded-full" style={{ background: "#ef4444" }} />
               <div className="w-3 h-3 rounded-full" style={{ background: "#f59e0b" }} />
               <div className="w-3 h-3 rounded-full" style={{ background: "#10b981" }} />
             </div>
-            <span className="text-xs ml-2" style={{ color: "#475569" }}>
+            <span className="text-xs ml-2" style={{ color: "var(--text-muted)" }}>
               bash — hotteokroom
             </span>
             <div className="ml-auto flex items-center gap-2">
               <div className="w-1.5 h-1.5 rounded-full" style={{ background: "#10b981" }} />
-              <span className="text-xs" style={{ color: "#475569" }}>connected</span>
+              <span className="text-xs" style={{ color: "var(--text-muted)" }}>connected</span>
             </div>
           </div>
 
@@ -180,7 +180,7 @@ export default function TerminalSection() {
               autoComplete="off"
               spellCheck={false}
             />
-            <span className="text-xs" style={{ color: "#475569" }}>↵</span>
+            <span className="text-xs" style={{ color: "var(--text-muted)" }}>↵</span>
           </form>
         </div>
 
@@ -193,9 +193,9 @@ export default function TerminalSection() {
             { label: "병렬 실행", value: "독립 Bash 호출", color: "#a78bfa" },
           ].map((item) => (
             <div key={item.label} className="p-4 rounded-xl text-center"
-              style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.07)" }}>
+              style={{ background: "var(--bg-card)", border: "1px solid var(--border)" }}>
               <div className="text-xs font-mono mb-1" style={{ color: item.color }}>{item.value}</div>
-              <div className="text-xs" style={{ color: "#475569" }}>{item.label}</div>
+              <div className="text-xs" style={{ color: "var(--text-muted)" }}>{item.label}</div>
             </div>
           ))}
         </div>

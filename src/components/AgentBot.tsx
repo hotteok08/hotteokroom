@@ -249,7 +249,7 @@ export default function AgentBot() {
               <button
                 onClick={() => setOpen(false)}
                 className="p-1.5 rounded-lg text-xs"
-                style={{ color: "#475569" }}
+                style={{ color: "var(--text-muted)" }}
               >
                 ✕
               </button>
@@ -268,7 +268,7 @@ export default function AgentBot() {
                   style={
                     msg.from === "user"
                       ? { background: `${accentColor}22`, color: "#e2e8f0", border: `1px solid ${accentColor}30` }
-                      : { background: "rgba(255,255,255,0.04)", color: "#94a3b8", border: "1px solid rgba(255,255,255,0.08)" }
+                      : { background: "var(--bg-card)", color: "var(--text-dim)", border: "1px solid var(--border)" }
                   }
                 >
                   {msg.text}
@@ -288,7 +288,7 @@ export default function AgentBot() {
                 onKeyDown={(e) => e.key === "Enter" && handleSend()}
                 placeholder={t.agentBot.placeholder}
                 className="flex-1 px-3 py-2 rounded-lg text-xs outline-none"
-                style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.1)", color: "#e2e8f0" }}
+                style={{ background: "var(--bg-card)", border: "1px solid var(--border)", color: "#e2e8f0" }}
               />
               <button
                 onClick={handleSend}
@@ -298,7 +298,7 @@ export default function AgentBot() {
                 ↵
               </button>
             </div>
-            <div className="mt-2 text-center text-xs" style={{ color: "#2d3748" }}>
+            <div className="mt-2 text-center text-xs" style={{ color: "var(--text-faint)" }}>
               {t.agentBot.hint}
             </div>
           </div>

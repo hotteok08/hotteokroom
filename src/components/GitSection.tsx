@@ -40,8 +40,8 @@ export default function GitSection() {
             style={{ background: "rgba(59, 130, 246, 0.1)", border: "1px solid rgba(59, 130, 246, 0.3)", color: "#3b82f6" }}>
             ⬡ Git Integration
           </div>
-          <h2 className="text-4xl font-bold text-white mb-4">Git & GitHub 통합</h2>
-          <p className="text-sm max-w-xl mx-auto" style={{ color: "#64748b" }}>
+          <h2 className="text-4xl font-bold mb-4" style={{ color: "var(--text)" }}>Git & GitHub 통합</h2>
+          <p className="text-sm max-w-xl mx-auto" style={{ color: "var(--text-muted)" }}>
             GitHub MCP 서버를 통한 완전한 Git 워크플로우. 아래 커밋은 이 레포의 실제 히스토리입니다.
           </p>
         </div>
@@ -51,7 +51,7 @@ export default function GitSection() {
           <div>
             <div className="flex items-center gap-3 mb-6">
               <div className="w-3 h-3 rounded-full" style={{ background: "#10b981" }} />
-              <h3 className="text-sm font-semibold text-white">실제 커밋 히스토리</h3>
+              <h3 className="text-sm font-semibold" style={{ color: "var(--text)" }}>실제 커밋 히스토리</h3>
               <span className="text-xs px-2 py-0.5 rounded"
                 style={{ background: "rgba(16,185,129,0.1)", color: "#10b981", border: "1px solid rgba(16,185,129,0.2)" }}>
                 hotteok08/hotteokroom
@@ -62,31 +62,31 @@ export default function GitSection() {
               {loading ? (
                 [...Array(5)].map((_, i) => (
                   <div key={i} className="h-16 rounded-xl animate-pulse"
-                    style={{ background: "rgba(255,255,255,0.03)" }} />
+                    style={{ background: "var(--bg-card)" }} />
                 ))
               ) : commits.length === 0 ? (
                 <div className="p-6 rounded-xl text-center"
-                  style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.07)" }}>
-                  <div className="text-sm" style={{ color: "#475569" }}>커밋 정보를 불러오는 중...</div>
+                  style={{ background: "var(--bg-card)", border: "1px solid var(--border)" }}>
+                  <div className="text-sm" style={{ color: "var(--text-muted)" }}>커밋 정보를 불러오는 중...</div>
                 </div>
               ) : (
                 commits.slice(0, 8).map((commit, i) => (
                   <div key={commit.hash} className="p-4 rounded-xl transition-all"
-                    style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", animationDelay: `${i * 0.05}s` }}>
+                    style={{ background: "var(--bg-card)", border: "1px solid var(--border)", animationDelay: `${i * 0.05}s` }}>
                     <div className="flex items-start gap-3">
                       <div className="w-6 h-6 rounded flex items-center justify-center text-xs shrink-0 mt-0.5 font-mono"
                         style={{ background: "rgba(59, 130, 246, 0.15)", color: "#3b82f6" }}>
                         {commit.hash.slice(0, 3)}
                       </div>
                       <div className="flex-1 min-w-0">
-                        <div className="text-xs text-white truncate">{commit.subject}</div>
+                        <div className="text-xs truncate" style={{ color: "var(--text)" }}>{commit.subject}</div>
                         <div className="flex items-center gap-2 mt-1">
-                          <span className="text-xs" style={{ color: "#475569" }}>{commit.author}</span>
-                          <span style={{ color: "#2d3748" }}>·</span>
-                          <span className="text-xs" style={{ color: "#475569" }}>{commit.rel}</span>
+                          <span className="text-xs" style={{ color: "var(--text-muted)" }}>{commit.author}</span>
+                          <span style={{ color: "var(--text-faint)" }}>·</span>
+                          <span className="text-xs" style={{ color: "var(--text-muted)" }}>{commit.rel}</span>
                         </div>
                       </div>
-                      <span className="text-xs font-mono shrink-0" style={{ color: "#475569" }}>{commit.hash}</span>
+                      <span className="text-xs font-mono shrink-0" style={{ color: "var(--text-muted)" }}>{commit.hash}</span>
                     </div>
                   </div>
                 ))
@@ -96,13 +96,13 @@ export default function GitSection() {
 
           {/* Git Features */}
           <div>
-            <h3 className="text-sm font-semibold text-white mb-6">GitHub MCP 기능</h3>
+            <h3 className="text-sm font-semibold mb-6" style={{ color: "var(--text)" }}>GitHub MCP 기능</h3>
             <div className="grid grid-cols-2 gap-3">
               {GIT_FEATURES.map((feat) => (
                 <div key={feat.label} className="p-4 rounded-xl"
-                  style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.07)" }}>
+                  style={{ background: "var(--bg-card)", border: "1px solid var(--border)" }}>
                   <div className="text-xl mb-2">{feat.icon}</div>
-                  <div className="text-sm font-semibold mb-1 text-white">{feat.label}</div>
+                  <div className="text-sm font-semibold mb-1" style={{ color: "var(--text)" }}>{feat.label}</div>
                   <div className="text-xs font-mono" style={{ color: feat.color }}>{feat.desc}</div>
                 </div>
               ))}
@@ -111,7 +111,7 @@ export default function GitSection() {
             <div className="mt-6 p-4 rounded-xl"
               style={{ background: "rgba(59, 130, 246, 0.06)", border: "1px solid rgba(59, 130, 246, 0.2)" }}>
               <div className="text-xs font-semibold mb-3" style={{ color: "#3b82f6" }}>Git Safety Protocol</div>
-              <ul className="space-y-1.5 text-xs" style={{ color: "#94a3b8" }}>
+              <ul className="space-y-1.5 text-xs" style={{ color: "var(--text-dim)" }}>
                 <li>• force push 전 항상 사용자 확인</li>
                 <li>• --no-verify 금지 (훅 우회 차단)</li>
                 <li>• 새 커밋 우선 (amend 최소화)</li>
@@ -121,14 +121,14 @@ export default function GitSection() {
             </div>
 
             <div className="mt-4 p-4 rounded-xl"
-              style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.07)" }}>
-              <div className="text-xs font-mono" style={{ color: "#475569" }}>
-                <span style={{ color: "#94a3b8" }}>$ </span>
+              style={{ background: "var(--bg-card)", border: "1px solid var(--border)" }}>
+              <div className="text-xs font-mono" style={{ color: "var(--text-muted)" }}>
+                <span style={{ color: "var(--text-dim)" }}>$ </span>
                 <span style={{ color: "#10b981" }}>git push</span>
-                <span style={{ color: "#94a3b8" }}> -u origin claude/api-showcase-website-T4CEq</span>
+                <span style={{ color: "var(--text-dim)" }}> -u origin claude/api-showcase-website-T4CEq</span>
               </div>
-              <div className="mt-2 text-xs font-mono" style={{ color: "#475569" }}>
-                <span style={{ color: "#94a3b8" }}>→ </span>
+              <div className="mt-2 text-xs font-mono" style={{ color: "var(--text-muted)" }}>
+                <span style={{ color: "var(--text-dim)" }}>→ </span>
                 <span style={{ color: "#a78bfa" }}>PR 자동 생성 (draft)</span>
               </div>
             </div>

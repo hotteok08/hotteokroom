@@ -45,7 +45,7 @@ export default function MCPSection() {
                     <span className="text-xs px-2 py-0.5 rounded-full"
                       style={active.connected
                         ? { background: "rgba(16,185,129,0.15)", color: "#10b981", border: "1px solid rgba(16,185,129,0.3)" }
-                        : { background: "rgba(255,255,255,0.05)", color: "var(--text-muted)", border: "1px solid var(--border)" }}>
+                        : { background: "var(--bg-card)", color: "var(--text-muted)", border: "1px solid var(--border)" }}>
                       {active.connected ? `● ${t.mcp.connectedLabel}` : t.mcp.availableLabel}
                     </span>
                   </div>
@@ -119,7 +119,7 @@ export default function MCPSection() {
                   >
                     <div className="text-xl mb-1">{server.icon}</div>
                     <div className="text-xs font-semibold" style={{ color: "var(--text)" }}>{server.name}</div>
-                    <div className="text-xs mt-0.5" style={{ color: "var(--text-muted)" }}>연결 가능</div>
+                    <div className="text-xs mt-0.5" style={{ color: "var(--text-muted)" }}>{t.mcp.availableLabel}</div>
                   </button>
                 ))}
               </div>
@@ -129,7 +129,7 @@ export default function MCPSection() {
                   className="mt-3 w-full py-2 rounded-xl text-xs transition-all"
                   style={{ background: "var(--bg-card)", border: "1px solid var(--border)", color: "var(--text-muted)" }}
                 >
-                  +{available.length - 3}개 더 보기
+                  +{available.length - 3}{t.mcp.showMore}
                 </button>
               )}
             </div>

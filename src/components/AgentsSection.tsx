@@ -93,8 +93,8 @@ export default function AgentsSection() {
             style={{ background: "rgba(167, 139, 250, 0.1)", border: "1px solid rgba(167, 139, 250, 0.3)", color: "#a78bfa" }}>
             ◈ Multi-Agent System
           </div>
-          <h2 className="text-4xl font-bold text-white mb-4">에이전트 시스템</h2>
-          <p className="text-sm max-w-xl mx-auto" style={{ color: "#64748b" }}>
+          <h2 className="text-4xl font-bold mb-4" style={{ color: "var(--text)" }}>에이전트 시스템</h2>
+          <p className="text-sm max-w-xl mx-auto" style={{ color: "var(--text-muted)" }}>
             복잡한 작업을 특수화된 서브에이전트로 분할해 병렬 실행. 각 에이전트는 독립 컨텍스트를 가집니다.
           </p>
         </div>
@@ -103,7 +103,7 @@ export default function AgentsSection() {
           {/* Flow Diagram */}
           <div>
             <div className="flex items-center justify-between mb-6">
-              <h3 className="text-sm font-semibold text-white">병렬 에이전트 실행 흐름</h3>
+              <h3 className="text-sm font-semibold" style={{ color: "var(--text)" }}>병렬 에이전트 실행 흐름</h3>
               <button
                 onClick={runDemo}
                 className="px-4 py-1.5 rounded-lg text-xs font-medium transition-all"
@@ -133,7 +133,7 @@ export default function AgentsSection() {
                             style={{ background: STATUS_COLOR[node.status] }} />
                           <span className="text-xs font-semibold" style={{ color: node.color }}>{node.type}</span>
                         </div>
-                        <div className="text-xs" style={{ color: "#94a3b8" }}>{node.task}</div>
+                        <div className="text-xs" style={{ color: "var(--text-dim)" }}>{node.task}</div>
                         {node.status !== "idle" && (
                           <div className="mt-2 text-xs" style={{ color: STATUS_COLOR[node.status] }}>
                             {STATUS_LABEL[node.status]}
@@ -166,17 +166,17 @@ export default function AgentsSection() {
 
           {/* Agent Types */}
           <div>
-            <h3 className="text-sm font-semibold text-white mb-6">사용 가능한 에이전트 타입</h3>
+            <h3 className="text-sm font-semibold mb-6" style={{ color: "var(--text)" }}>사용 가능한 에이전트 타입</h3>
             <div className="space-y-3">
               {AGENT_TYPES.map((agent) => (
                 <div key={agent.type} className="p-4 rounded-xl"
-                  style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.07)" }}>
+                  style={{ background: "var(--bg-card)", border: "1px solid var(--border)" }}>
                   <div className="flex items-center gap-3">
                     <div className="px-2 py-0.5 rounded text-xs font-mono font-semibold"
                       style={{ background: `${agent.color}15`, color: agent.color, border: `1px solid ${agent.color}30` }}>
                       {agent.type}
                     </div>
-                    <span className="text-xs" style={{ color: "#64748b" }}>{agent.desc}</span>
+                    <span className="text-xs" style={{ color: "var(--text-muted)" }}>{agent.desc}</span>
                   </div>
                 </div>
               ))}
@@ -185,7 +185,7 @@ export default function AgentsSection() {
             <div className="mt-6 p-4 rounded-xl"
               style={{ background: "rgba(167, 139, 250, 0.06)", border: "1px solid rgba(167, 139, 250, 0.2)" }}>
               <div className="text-xs font-semibold mb-2" style={{ color: "#a78bfa" }}>⚡ 핵심 기능</div>
-              <ul className="space-y-1.5 text-xs" style={{ color: "#94a3b8" }}>
+              <ul className="space-y-1.5 text-xs" style={{ color: "var(--text-dim)" }}>
                 <li>• <strong style={{ color: "#e2e8f0" }}>병렬 실행</strong> — 독립 작업은 동시에 처리</li>
                 <li>• <strong style={{ color: "#e2e8f0" }}>백그라운드</strong> — run_in_background: true로 비동기</li>
                 <li>• <strong style={{ color: "#e2e8f0" }}>격리된 컨텍스트</strong> — 각 에이전트는 독립 메모리</li>

@@ -40,6 +40,7 @@ export const ko = {
     toolsCount: "도구",
     activeLabel: "활성",
     availableLabel: "연결 가능",
+    showMore: "개 더 보기",
   },
   git: {
     title: "Git & GitHub 통합",
@@ -85,6 +86,7 @@ export const ko = {
     complete: "완료!",
     nextStep: "다음 →",
     restart: "처음부터",
+    intermediateHint: "💡 중급자 모드 — 아래 전문가 섹션도 함께 확인하세요",
     steps: {
       read: { title: "📂 파일 열기 (Read)", task: "파일을 클릭해서 내용을 확인해보세요" },
       search: { title: "🔍 코드 검색 (Grep)", task: "검색어를 입력하면 코드에서 찾아줘요" },
@@ -136,6 +138,7 @@ export const en: typeof ko = {
     toolsCount: "tools",
     activeLabel: "Active",
     availableLabel: "Available",
+    showMore: " more",
   },
   git: {
     title: "Git & GitHub Integration",
@@ -181,6 +184,7 @@ export const en: typeof ko = {
     complete: "Done!",
     nextStep: "Next →",
     restart: "Restart",
+    intermediateHint: "💡 Intermediate mode — also check the expert sections below",
     steps: {
       read: { title: "📂 Open File (Read)", task: "Click a file to see its contents" },
       search: { title: "🔍 Search Code (Grep)", task: "Type a search term to find it in code" },
